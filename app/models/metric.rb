@@ -1,3 +1,3 @@
 class Metric < ApplicationRecord
-    belongs_to :Song
+    belongs_to :song
 end

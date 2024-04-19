@@ -1,3 +1,3 @@
 class Album < ApplicationRecord
-    has_many :Song
+    has_many :song
 end

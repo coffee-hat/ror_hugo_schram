@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_19_163605) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_19_200325) do
   create_table "albums", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -41,6 +41,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_19_163605) do
     t.integer "month_view_count"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "song_id", null: false
+    t.index ["song_id"], name: "index_metrics_on_song_id"
   end
 
   create_table "songs", force: :cascade do |t|
@@ -49,14 +51,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_19_163605) do
     t.text "lyrics"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "albums_id", null: false
-    t.integer "metrics_id", null: false
-    t.index ["albums_id"], name: "index_songs_on_albums_id"
-    t.index ["metrics_id"], name: "index_songs_on_metrics_id"
+    t.integer "album_id", null: false
+    t.index ["album_id"], name: "index_songs_on_album_id"
   end
 
   add_foreign_key "artists_songs", "artists", column: "artists_id"
   add_foreign_key "artists_songs", "songs", column: "songs_id"
-  add_foreign_key "songs", "albums", column: "albums_id"
-  add_foreign_key "songs", "metrics", column: "metrics_id"
+  add_foreign_key "metrics", "songs"
+  add_foreign_key "songs", "albums"
 end
