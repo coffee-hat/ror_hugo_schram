@@ -28,12 +28,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_19_200325) do
   end
 
   create_table "artists_songs", force: :cascade do |t|
-    t.integer "artists_id", null: false
-    t.integer "songs_id", null: false
+    t.integer "artist_id", null: false
+    t.integer "song_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["artists_id"], name: "index_artists_songs_on_artists_id"
-    t.index ["songs_id"], name: "index_artists_songs_on_songs_id"
+    t.index ["artist_id"], name: "index_artists_songs_on_artist_id"
+    t.index ["song_id"], name: "index_artists_songs_on_song_id"
   end
 
   create_table "metrics", force: :cascade do |t|
@@ -55,8 +55,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_19_200325) do
     t.index ["album_id"], name: "index_songs_on_album_id"
   end
 
-  add_foreign_key "artists_songs", "artists", column: "artists_id"
-  add_foreign_key "artists_songs", "songs", column: "songs_id"
+  add_foreign_key "artists_songs", "artists"
+  add_foreign_key "artists_songs", "songs"
   add_foreign_key "metrics", "songs"
   add_foreign_key "songs", "albums"
 end
