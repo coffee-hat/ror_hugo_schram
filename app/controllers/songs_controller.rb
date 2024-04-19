@@ -21,6 +21,8 @@ class SongsController < ApplicationController
 
   # POST /songs or /songs.json
   def create
+    logger.debug("-----------------")
+    logger.debug(song_params)
     @song = Song.new(song_params)
 
     respond_to do |format|
@@ -65,6 +67,6 @@ class SongsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def song_params
-      params.require(:song).permit(:title, :thumbnail_url, :lyrics)
+      params.require(:song).permit(:title, :thumbnail_url, :lyrics, :album_id)
     end
 end

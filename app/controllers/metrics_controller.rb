@@ -65,6 +65,6 @@ class MetricsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def metric_params
-      params.require(:metric).permit(:global_view_count, :month_view_count)
+      params.require(:metric).permit(:global_view_count, :month_view_count, :song_id)
     end
 end

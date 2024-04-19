@@ -12,6 +12,11 @@
   <% end %>
 
   <div class="my-5">
+    <%= form.label :song_id, "Songs" %>
+    <%= form.select :song_id, options_for_select(Song.all.map { |song| [song.title, song.id] }) %>
+  </div>
+
+  <div class="my-5">
     <%= form.label :global_view_count %>
     <%= form.number_field :global_view_count, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
