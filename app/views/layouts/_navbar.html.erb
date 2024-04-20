@@ -26,6 +26,9 @@
                     <h1><%= current_user.email %></h1>
                 <% end %>
             </li>
+             <li class="mb-4 lg:mb-0 lg:pe-2" data-twe-nav-item-ref>
+                <%= link_to 'Sign in', new_user_session_path %>
+            </li>
             <li class="mb-4 lg:mb-0 lg:pe-2" data-twe-nav-item-ref>
                 <%= link_to 'Sign out', destroy_user_session_path, data: { turbo_method: :delete } %>
             </li>
