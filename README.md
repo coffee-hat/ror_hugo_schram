@@ -1,24 +1,23 @@
-# README
+# Ruby on Rails
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Remarque importante : Il existe un problème avec Devise en production, il est impossible de se connecter et le serveur renvoie une erreur 422. Cependant, cela fonctionne correctement en mode développement.
 
-Things you may want to cover:
+## Prérequis
 
-* Ruby version
+- Ruby version X.X.X
+- Rails version X.X.X
+- SQLite3
 
-* System dependencies
+## Installation
 
-* Configuration
+1. Clonez ce dépôt
+2. Installez les dépendances : `bundle install`
+3. Créez la base de données : `rails db:create`
+4. Exécutez les migrations : `rails db:migrate`
 
-* Database creation
+## Utilisation
 
-* Database initialization
+Pour démarrer le serveur de développement, exécutez la commande suivante :
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```bash
+./bin/dev
